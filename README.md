@@ -123,7 +123,7 @@ To run tests, run the following command accordingly:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/felixDev22/Blog-app/issues).
+Feel free to check the [issues page](https://github.com/felixDev22/blog_app/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
