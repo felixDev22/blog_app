@@ -74,7 +74,7 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 
-- git clone `https://github.com/felixDev22/Rails-Blog-App.git`
+- git clone `https://github.com/felixDev22/blog_app`
 - cd Rails-Blog_App
 - bundle install
 - rails db:create
@@ -123,7 +123,7 @@ To run tests, run the following command accordingly:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/felixDev22/Rails-Blog-App/issues).
+Feel free to check the [issues page](https://github.com/felixDev22/blog_app/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
