@@ -1,5 +1,4 @@
-
-
+# frozen_string_literal: true
 
 # rubocop:disable Metrics/BlockLength
 ActiveRecord::Schema[7.0].define(version: 20_230_406_121_834) do

@@ -1,4 +1,4 @@
-
+# frozen_string_literal: true
 
 # The ApplicationMailer class is the parent class for all mailers in the application.
 class ApplicationMailer < ActionMailer::Base
