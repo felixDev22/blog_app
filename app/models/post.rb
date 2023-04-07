@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This class represents a post created by a user.
 # Posts can have many comments and likes.
 class Post < ApplicationRecord
