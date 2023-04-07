@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# This class represents a post created by a user.
+# Posts can have many comments and likes.
 class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
   has_many :likes, foreign_key: :post_id

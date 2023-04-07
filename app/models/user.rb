@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# This class represents a user who can create posts, comments, and likes.
+# Users have a name and a counter for their posts.
 class User < ApplicationRecord
   has_many :comments, foreign_key: :author_id
   has_many :posts, foreign_key: :author_id

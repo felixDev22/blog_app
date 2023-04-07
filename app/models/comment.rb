@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# This class represents a comment on a post.
+# Comments belong to a post and are written by a user.
 class Comment < ApplicationRecord
   belongs_to :post
   belongs_to :author, class_name: 'User'
