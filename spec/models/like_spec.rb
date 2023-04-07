@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
@@ -6,7 +8,7 @@ RSpec.describe Like, type: :model do
                         posts_counter: 5)
     post = Post.create(author: user1, title: 'Hello', text: 'This is my first post', likes_counter: 5,
                        comments_counter: 5)
-    like = Like.create(post: post, user_id: user1)
+    like = Like.create(post:, user_id: user1)
 
     like.update_likes_counter
     check = post.reload.likes_counter

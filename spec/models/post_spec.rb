@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:user1) {
+  let(:user1) do
     User.create(name: 'Bazu', photo: 'http//:www.unsplah.com', bio: 'A doctor with 12 years of experience',
                 posts_counter: 0)
-  }
+  end
   let(:post) { Post.create(author: user1, title: 'Hello', text: 'This is my first post') }
 
   it 'validates presence of title' do
