@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This class represents a like on a post.
 # Likes belong to a post and are given by a user.
 class Like < ApplicationRecord
