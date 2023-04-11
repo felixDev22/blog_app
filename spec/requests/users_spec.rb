@@ -6,5 +6,33 @@ RSpec.describe UsersController, type: :request do
       get '/users/'
       expect(response).to be_successful
     end
+
+    it 'renders the index template of views/users' do
+      get '/users/'
+      expect(response).to render_template(:index)
+    end
+  end
+  it 'display the correct correct placeholder text' do
+    get '/users/'
+    result = response.body
+    expect(result).to include('Here is a list of all user')
+  end
+
+  describe 'GET #show' do
+    it 'returns a success response' do
+      get '/users/745'
+      expect(response).to have_http_status(200)
+    end
+
+    it 'renders the show template' do
+      get '/users/745'
+      expect(response).to render_template(:show)
+    end
+
+    it 'display the correct placeholder text' do
+      get '/users/745'
+      result = response.body
+      expect(result).to include('Shows the details of selected user')
+    end
   end
 end
