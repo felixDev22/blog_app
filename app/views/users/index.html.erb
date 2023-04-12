@@ -1,7 +1,7 @@
 <section class='user-container'>
   <% @users.each do |user| %>
     <div class='user'>
-      <div class='user_Photo'><%= user.photo %></div>
+      <div class='user_Photo'><%= user.photo, class: "profile-photo" %></div>
       <div class='user_name'>
         <h2><%= user.name %></h2>
         <div class=post_nums>
