@@ -6,6 +6,9 @@
         <h2><%= user.name %></h2>
         <div class=post_nums>
           <p class="post_count">Number of posts: <%= user.posts_counter %></p>
+          <p class="view_user">
+              <%= link_to "View_details", user_path(user.id) %>
+            </p>
         </div>
       </div>
     </div>
