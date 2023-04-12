@@ -43,3 +43,14 @@
 .user_name p {
   font-size: 14px;
 }
+
+.Bio {
+  width: 800px;
+  height: 200px;
+  border: 1px solid #8b8b8b;
+  padding: 20px;
+}
+
+.Bio_Box {
+  font-size: 14px;
+}
