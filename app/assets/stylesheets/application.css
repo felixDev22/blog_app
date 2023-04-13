@@ -77,3 +77,21 @@
   margin-top: 40px;
   margin-right: 20px;
 }
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto;
+  width: 90px;
+  height: 30px;
+}
+
+.all_posts {
+  font-size: 14px;
+}
+
+.no-posts {
+  margin-left: 20px;
+  color: red;
+}

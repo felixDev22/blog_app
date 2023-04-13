@@ -1,1 +1,51 @@
-<h1>Here is a list of posts for a given user<h1>
+<section class='user-container'>
+  <div class='user'>
+    <div class='user_Photo'>
+      <div class='profile-photo'><%= @user.photo %></div>
+    </div>
+    <div class='user_name'>
+      <h2><%= @user.name %></h2>
+      <div class='post_nums'>
+        <p class="post_count">Number of posts: <%= @user.posts_counter %></p>
+      </div>
+    </div>
+  </div>
+
+  <section class="posts_container">
+    <% if @recent_posts.present? %>
+      <% @recent_posts.each_with_index do |post, index| %>
+        <div class="post">
+          <h3>Post #<%= index+1 %></h3>
+          <p class="post_text"><%= post.text %></p>
+          <p class="comments_likes">
+            Comments: <%= post.comments_counter %>,
+            Likes: <%= post.likes_counter %>
+          </p>
+        </div>
+      <% end %>
+    <% else %>
+      <p class=no-posts>*No recent posts.</p>
+    <% end %>
+
+    <button class="all_posts">
+      <%= link_to "See all posts", user_posts_path(@user) %>
+    </button>
+  </section>
+
+  <div class="post">
+    <h4>Comments:</h4>
+    <% @post_comments.each do |comment| %>
+      <ul>
+        <% if comment.post_id === post.id %>
+          <li><%= comment.user.name %>: <%= comment.text %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+  <br>
+  <button class="all_posts">
+    Next
+  </button>
+</div>
+
+</section>
