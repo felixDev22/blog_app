@@ -1,4 +1,4 @@
-<section class='user-container'>
+d<section class='user-container'>
   <div class='user'>
     <div class='user_Photo'>
       <div class='profile-photo'><%= @user.photo %></div>
@@ -43,9 +43,20 @@
     <% end %>
   </div>
   <br>
+<div class='btn_section'>
+ 
+   <button class="all_posts home">
+        <%=link_to 'home',  '/users' %>
+      </button>
+
   <button class="all_posts">
     Next
   </button>
+      
+      <button class="ll_posts home">
+        <%= link_to 'back', "/users/#{@user.id}" %>
+      </button>
 </div>
+</div> 
 
 </section>
