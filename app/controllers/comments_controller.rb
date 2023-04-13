@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
       @comment.update_comments_counter
       redirect_to user_post_path(user_id: params[:user_id], id: params[:post_id])
     else
-      flash[:alert] = "Failed to add Comment!"
+      flash[:alert] = 'Failed to add Comment!'
       render :new, status: :unprocessable_entity
     end
   end
@@ -19,5 +19,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:text)
   end
-
 end

@@ -26,15 +26,14 @@ class PostsController < ApplicationController
       @post.update_post_counter
       redirect_to user_posts_path(current_user)
     else
-      flash[:alert] = "Failed to create post!"
+      flash[:alert] = 'Failed to create post!'
       render :new, status: :unprocessable_entity
     end
   end
 
-   private
+  private
 
   def post_params
     params.require(:post).permit(:title, :text)
   end
-
 end

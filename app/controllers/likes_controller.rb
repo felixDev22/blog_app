@@ -4,7 +4,7 @@ class LikesController < ApplicationController
     @like.user = current_user
     @like.post = Post.find(params[:post_id])
 
-  
+
     if @like.save
       flash[:notice] = 'Like added successfully!'
       @like.update_likes_counter
@@ -13,6 +13,6 @@ class LikesController < ApplicationController
       flash[:alert] = 'Failed to add like'
       puts @like.errors.full_messages
       render :new, status: :unprocessable_entity
-      end
+    end
   end
 end
