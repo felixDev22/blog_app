@@ -18,20 +18,22 @@
     </div>
   </div>
 
-  <div class="posts_container">
+  <section class="posts_container">
     <% @recent_posts.each_with_index do |post, index| %>
-      <a class="post">
+      <div class="post">
         <h3>Post #<%= index+1 %></h3>
         <p class="post_text"><%= post.text %></p>
-        <p class="commentsCount">
+        <p class="comments_likes">
           Comments: <%= post.comments_counter %>,
           Likes: <%= post.likes_counter %>
         </p>
-      </a>
-      <br>
+      </div>
     <% end %>
-    <button class="seePosts">
+
+    <button class="all_posts">
       <%= link_to "See all posts", user_posts_path(@user) %>
     </button>
-  </div>
+    
+  </section>
+    
 </section>

@@ -96,3 +96,9 @@ button {
   margin-left: 20px;
   color: red;
 }
+
+.post-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
