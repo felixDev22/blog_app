@@ -62,7 +62,8 @@
   height: auto;
 }
 
-.post {
+.post,
+.comments-area {
   border: 1px solid #8b8b8b;
   width: 820px;
   height: 150px;
