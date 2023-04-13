@@ -31,7 +31,11 @@ class PostsController < ApplicationController
     end
   end
 
-    private
+   private
+
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id])
+  end
 
   def post_params
     params.require(:post).permit(:title, :text)
