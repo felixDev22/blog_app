@@ -140,14 +140,13 @@ button {
 }
 
 .like-created {
-  align-items: center;
   border: 1px solid #8b8b8b;
   width: 820px;
   height: 200px;
   padding: 20px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   margin: 40px auto;
   color: green;
 }

@@ -4,7 +4,6 @@ class LikesController < ApplicationController
     @like.user = current_user
     @like.post = Post.find(params[:post_id])
 
-
     if @like.save
       flash[:notice] = 'Like added successfully!'
       @like.update_likes_counter
