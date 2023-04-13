@@ -1,18 +1,37 @@
 <section class='user-container'>
-    <div class='user'>
-      <div class='user_Photo'><%= user.photo, class: "profile-photo" %></div>
-      <div class='user_name'>
-        <h2><%= user.name %></h2>
-        <div class=post_nums>
-          <p class="post_count">Number of posts: <%= user.posts_counter %></p>
-        </div>
+  <div class='user'>
+    <div class='user_Photo'>
+      <div class='profile-photo'><%= @user.photo %></div>
+    </div>
+    <div class='user_name'>
+      <h2><%= @user.name %></h2>
+      <div class='post_nums'>
+        <p class="post_count">Number of posts: <%= @user.posts_counter %></p>
       </div>
     </div>
-</section>
+  </div>
 
- <section class="Bio">
-    <div class = "Bio_box">
+  <div class="Bio">
+    <div class="Bio_box">
       <h3 class="Bio_title">Bio :</h3>  
-      <p><%= @users.Bio %></p>
+      <p><%= @user.bio %></p>
     </div>
+  </div>
+
+  <div class="posts_container">
+    <% @recent_posts.each_with_index do |post, index| %>
+      <a class="post">
+        <h3>Post #<%= index+1 %></h3>
+        <p class="post_text"><%= post.text %></p>
+        <p class="commentsCount">
+          Comments: <%= post.comments_counter %>,
+          Likes: <%= post.likes_counter %>
+        </p>
+      </a>
+      <br>
+    <% end %>
+    <button class="seePosts">
+      <%= link_to "See all posts", user_posts_path(@user) %>
+    </button>
+  </div>
 </section>
