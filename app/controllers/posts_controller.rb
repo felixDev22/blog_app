@@ -1,39 +1,38 @@
 class PostsController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
-    @user_posts = Post.where(author_id: @user.id)
-    @user_comments = Comment.where(user_id: @user.id)
-    @post_comments = Comment.where(post_id: @user_posts.ids)
-  end
+  @id = params[:user_id]
+  @user = User.find(@id)
+  @user_posts = Post.where(author_id: @user.id)
+end
+
 
   def show
+    @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
-    @post_comments = Comment.where(post_id: @post)
+    @comments = @post.comments
+    @like = Like.new
   end
 
-  def new
-    @post = Post.new
-  end
+ def new
+  @post = Post.new
+  @user = current_user
+end
 
   def create
-    @post = Post.new(post_params)
-    @post.author = current_user
-    @post.comments_counter = 0
-    @post.likes_counter = 0
-
+    @user = current_user
+    @post = Post.new(
+      author: @user,
+      title: params[:post][:title],
+      text: params[:post][:text],
+      comments_counter: 0,
+      likes_counter: 0
+    )
     if @post.save
-      flash[:notice] = 'Post created successfully!'
-      @post.update_post_counter
-      redirect_to user_posts_path(current_user)
+      flash[:success] = 'Post saved successfully.'
+      redirect_to user_path(@user.id)
     else
-      flash[:alert] = 'Failed to create post!'
-      render :new, status: :unprocessable_entity
+      flash.now[:error] = 'Sorry something went wrong'
+      render :new
     end
-  end
-
-  private
-
-  def post_params
-    params.require(:post).permit(:title, :text)
   end
 end
