@@ -4,9 +4,9 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @post = Post.find(params[:post_id])
     @comment = current_user.comments.new(comment_params)
-    @comment.user_id = current_user.id
-    @comment.post_id = @post.id
+    @comment.post = @post
     if @comment.save
       flash[:success] = 'Comment created successfully'
     else
