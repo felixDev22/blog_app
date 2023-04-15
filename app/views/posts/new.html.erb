@@ -1,0 +1,19 @@
+<section class="form-container">
+  
+
+<%= form_with model: @post, url: user_posts_path(@user), local: true do |form| %>
+    <div class="form-input">
+    <%= form.label :title  %>
+  <%= form.text_field :title, required: true, class: "form_title", placeholder: "Add a title here" %>
+</div>
+<div class="form-input">
+  <%= form.label :text %>
+<%= form.text_area :text, required: true, class: "form_text", placeholder: "Write here...." %>
+</div>
+<div class='submit-btn'>
+  <%= form.submit "Submit post", class: "btn" %>
+  
+</div>
+<% end %>
+  <button class="back"><%=link_to 'Back to posts', user_posts_path %></button>
+  </section>

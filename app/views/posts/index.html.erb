@@ -32,20 +32,47 @@
     </button>
   </section>
 
-  <div class="post">
-    <h4>Comments:</h4>
-    <% @post_comments.each do |comment| %>
-      <ul>
-        <% if comment.post_id === post.id %>
-          <li><%= comment.user.name %>: <%= comment.text %></li>
+  <section class="post">
+  <% if @posts %>
+    <% @posts.each do |post| %>
+      <%= link_to user_post_path(@id, post.id), class: "user-link" do %>
+        <div class="">
+          <h3><%= post.title %></h3>
+          <p><%= post.text %></p>
+          <div class=" ">
+            <p>Comments: <%= post.comments_counter.nil? ? 0 : post.comments_counter %></p>
+            <p class="">Likes: <%= post.likes_counter.nil? ? 0 : post.likes_counter %></p>
+          </div>
+        </div>
+      <% end %>
+      <div class="">
+        <% @comments = Post.find(post.id).recent_comments %>
+        <% @comments.each do |comment| %> 
+          <div class="">
+            <h3><%= comment.user.name %></h3>:
+            <h5 class=""><%= comment.text %></h5> 
+          </div>   
         <% end %>
-      </ul>
+      </div>
     <% end %>
-  </div>
-  <br>
-  <button class="all_posts">
-    Next
-  </button>
-</div>
+  <% else %>
+    <p>No posts found</p>
+  <% end %>
+
 
 </section>
+  </div>
+   <div class='btn_section'>
+    <button class="all_posts home">
+      <%=link_to 'home',  '/users' %>
+    </button>
+
+    <button class="all_posts">
+      Next
+    </button>
+      
+    <button class="ll_posts home">
+      <%= link_to 'back', "/users/#{@user.id}" %>
+    </button>
+
+
