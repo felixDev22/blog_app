@@ -1,5 +1,12 @@
 <a name="Blog-App"></a>
 
+<div align="center">
+
+  <img src="./Felix-Logo.500.jpg" alt="logo" width="140"  height="auto" />
+  <br/>
+
+  <h3><b>Blog-App</b></h3>
+
 <!-- TABLE OF CONTENTS -->
 
 ![Logo](../../Felix-Logo.500.jpg)
