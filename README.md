@@ -2,6 +2,8 @@
 
 <!-- TABLE OF CONTENTS -->
 
+![Logo](../../Felix-Logo.500.jpg)
+
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
