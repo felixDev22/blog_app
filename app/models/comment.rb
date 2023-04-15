@@ -3,10 +3,15 @@
 class Comment < ApplicationRecord
   belongs_to :post
   belongs_to :author, class_name: 'User'
+  validates :author, presence: true
 
-  def update_comments_counter
-    puts "Current post comments counter: #{post.comments_counter}"
-    post.update(comments_counter: post.comments_counter + 1)
-    puts "New post comments counter: #{post.comments_counter}"
+  after_save :update_post_comment_count
+
+  def recent_comments
+    comments.order('created_at Des').limit(5)
+  end
+
+  def update_post_comments_counter
+    post.update(comments_counter: post.comments.count)
   end
 end
