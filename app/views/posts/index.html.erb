@@ -1,15 +1,15 @@
 <section class='user-container'>
-  <div class='user'>
-    <div class='user_Photo'>
-      <div class='profile-photo'><%= @user.photo %></div>
-    </div>
-    <div class='user_name'>
-      <h2><%= @user.name %></h2>
-      <div class='post_nums'>
-        <p class="post_count">Number of posts: <%= @user.posts_counter %></p>
-      </div>
+<div class='user'>
+  <div class='user_Photo'>
+    <div class='profile-photo'><%= image_tag user.photo %></div>
+  </div>
+  <div class='user_name'>
+    <h2><%= user.name %></h2>
+    <div class='post_nums'>
+      <p class="post_count">Number of posts: <%= user.posts_counter %></p>
     </div>
   </div>
+</div>
 
   <section class="posts_container">
     <% if @recent_posts.present? %>
