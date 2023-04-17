@@ -1,8 +1,8 @@
 <section class='user-container'>
-  <div class='user'>
-    <div class='user_Photo'>
-      <div class='profile-photo'><%= @user.photo %></div>
-    </div>
+ <div class='user'>
+       <div class='user_Photo'>
+    <div><%= image_tag @user.photo, class: 'profile-photo' %></div>
+  </div>
     <div class='user_name'>
       <h2><%= @user.name %></h2>
       <div class='post_nums'>
