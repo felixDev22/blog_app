@@ -2,9 +2,9 @@ require 'rails_helper'
 
 require 'capybara/rspec'
 
-RSpec.configure do |config|
-  config.include Capybara::DSL
-end
+# RSpec.configure do |config|
+#   config.include Capybara::DSL
+# end
 
 RSpec.describe 'root page features' do
   before(:each) do
@@ -50,7 +50,6 @@ it 'display the first 3 posts' do
   end
 end
 
-
   it 'see all posts button redirects user to all of the posts' do
     visit "/users/#{@users.first.id}"
 
@@ -60,7 +59,6 @@ end
     click_link 'See all posts'
     expect(current_path).to eq(user_posts_path(@users.first))
   end
-
 
   it 'redirects to particular post page when clicked' do
     visit "/users/#{@users.first.id}"
