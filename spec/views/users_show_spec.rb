@@ -2,10 +2,6 @@ require 'rails_helper'
 
 require 'capybara/rspec'
 
-# RSpec.configure do |config|
-#   config.include Capybara::DSL
-# end
-
 RSpec.describe 'root page features' do
   before(:each) do
     @users = [
