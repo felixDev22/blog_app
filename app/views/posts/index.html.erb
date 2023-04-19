@@ -26,7 +26,7 @@
 
   <section class="post">
   <% if @posts %>
-    <% @posts.each do |post| %>
+    <% @posts.includes(:comments).each do |post| %>
       <%= link_to user_post_path(@id, post.id), class: "user-link" do %>
         <div class="">
           <h3><%= post.title %></h3>
