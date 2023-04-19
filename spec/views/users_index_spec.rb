@@ -10,15 +10,16 @@ RSpec.feature 'UsersIndices', type: :feature do
     false
   end
 
-  it 'displays the user name and profile image' do
+  it 'displays the user name and profile image on the index page' do
     visit '/users'
-
-    profile_link = page.find("a[href='#{user_path(user.id)}']", text: 'View_details')
-    profile_link.click
 
     expect(page).to have_content(user.name)
     expect(image_exists?(user.photo)).to be true
     expect(page).to have_content("Number of posts: #{user.posts_counter}")
+
+    profile_link = page.find("a[href='#{user_path(user.id)}']", text: 'View_details')
+    profile_link.click
+
     expect(current_path).to eq(user_path(user.id))
   end
 end
