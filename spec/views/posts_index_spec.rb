@@ -1,5 +1,5 @@
 require 'rails_helper'
-# rubocop:disable Metrics/BlockLength
+
 RSpec.feature 'PostIndex', type: :feature do
   let(:user) do
     User.create(
@@ -27,6 +27,10 @@ RSpec.feature 'PostIndex', type: :feature do
     expect(page).to have_content(post1.likes_counter)
   end
 
+  it 'displays the first comment' do
+    expect(page).to have_content(post1.comments.first)
+  end
+
   it 'displays the post titles' do
     expect(page).to have_content(user.posts.first.title)
     expect(page).to have_content(user.posts.second.title)
@@ -45,5 +49,15 @@ RSpec.feature 'PostIndex', type: :feature do
     expect(page).to have_link(href: user_post_path(user.id, post1.id))
     expect(page).to have_link(href: user_post_path(user.id, post2.id))
   end
+
+  it 'displays a section for pagination if there are more posts than fit on the view' do
+    user.posts.create(title: 'Post 6', text: 'First Time Home Buyer Tips', comments_counter: 2, likes_counter: 3)
+    user.posts.create(title: 'Post 7', text: 'Job interview tips', comments_counter: 2, likes_counter: 5)
+    user.posts.create(title: 'Post 8', text: 'Nature Photography', comments_counter: 3, likes_counter: 1)
+    user.posts.create(title: 'Post 9', text: 'Preparing for a marathon', comments_counter: 1, likes_counter: 2)
+    user.posts.create(title: 'Post 10', text: 'Favorite cooking recipes', comments_counter: 0, likes_counter: 7)
+    visit user_posts_path(user)
+    expect(page).to have_selector('.will-paginate-container')
+  end
 end
-# rubocop:enable Metrics/BlockLength
+
