@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+# rubocop:disable Metrics/BlockLength
 RSpec.feature 'PostIndex', type: :feature do
   let(:user) do
     User.create(
@@ -52,3 +52,4 @@ RSpec.feature 'PostIndex', type: :feature do
     expect(page).to have_content(user.posts.first.comments.second.text)
   end
 end
+# rubocop:enable Metrics/BlockLength

@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+# rubocop:disable Metrics/BlockLength
 RSpec.feature 'PostIndex', type: :feature do
   let(:user) do
     User.create(
@@ -46,3 +46,4 @@ RSpec.feature 'PostIndex', type: :feature do
     expect(page).to have_link(href: user_post_path(user.id, post2.id))
   end
 end
+# rubocop:enable Metrics/BlockLength
