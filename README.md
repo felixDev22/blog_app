@@ -3,7 +3,8 @@
 <div align="center">
 
   <img src="./Felix-Logo.500.jpg" alt="logo" width="140"  height="auto" />
-  <br/>
+  
+</div>
 
   <h3><b>Blog-App</b></h3>
 
@@ -70,7 +71,7 @@ To get a local copy up and running, follow these steps.
 In order to run this project you need:
 
 - Ruby installed in your machine
-
+- Setup linters
 - `gem install rails` (Ruby gem)
 
 ### Setup
