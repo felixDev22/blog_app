@@ -37,14 +37,14 @@ RSpec.describe 'root page features' do
     expect(page).to have_button('See all posts')
   end
 
-it 'display the first 3 posts' do
-  visit "/users/#{@users.first.id}"
+  it 'display the first 3 posts' do
+    visit "/users/#{@users.first.id}"
 
-  @users.first.posts.limit(3).each_with_index do |post, index|
-    expect(page).to have_content("Post ##{index + 1}")
-    expect(page).to have_content(post.text)
+    @users.first.posts.limit(3).each_with_index do |post, index|
+      expect(page).to have_content("Post ##{index + 1}")
+      expect(page).to have_content(post.text)
+    end
   end
-end
 
   it 'see all posts button redirects user to all of the posts' do
     visit "/users/#{@users.first.id}"

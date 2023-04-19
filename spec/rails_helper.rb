@@ -7,7 +7,6 @@ require_relative '../config/environment'
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 require 'spec_helper'
-require 'rspec/rails'
 require 'capybara'
 require 'selenium-webdriver'
 
@@ -46,7 +45,7 @@ RSpec.configure do |config|
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
-   config.include Capybara::DSL
+  config.include Capybara::DSL
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and

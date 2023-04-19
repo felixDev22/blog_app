@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature 'UsersIndices', type: :feature do
-  let!(:user) { User.find(1) } 
-  
+  let!(:user) { User.find(1) }
+
   def image_exists?(url)
     response = Net::HTTP.get_response(URI.parse(url))
     response.code == '200'
