@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This migration creates the posts table with columns for title, content, and user ID.
 class CreatePosts < ActiveRecord::Migration[7.0]
   def change

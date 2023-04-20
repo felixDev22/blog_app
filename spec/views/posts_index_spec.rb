@@ -1,12 +1,11 @@
 require 'rails_helper'
+require 'capybara/rspec'
 
 RSpec.feature 'PostIndex', type: :feature do
   let(:user) do
-    User.create(
-      name: 'Fatima',
-      photo: 'https://www.img2link.com/images/2023/04/13/c2bbea766ec481f3d798809dd39eedb6.png',
-      bio: 'CEO Nairobi Hub', posts_counter: 2
-    )
+    User.create(name: 'Fatima',
+                photo: 'https://www.img2link.com/images/2023/04/13/c2bbea766ec481f3d798809dd39eedb6.png',
+                bio: 'CEO Nairobi Hub', posts_counter: 2)
   end
 
   let!(:post1) do
@@ -54,10 +53,7 @@ RSpec.feature 'PostIndex', type: :feature do
     user.posts.create(title: 'Post 6', text: 'First Time Home Buyer Tips', comments_counter: 2, likes_counter: 3)
     user.posts.create(title: 'Post 7', text: 'Job interview tips', comments_counter: 2, likes_counter: 5)
     user.posts.create(title: 'Post 8', text: 'Nature Photography', comments_counter: 3, likes_counter: 1)
-    user.posts.create(title: 'Post 9', text: 'Preparing for a marathon', comments_counter: 1, likes_counter: 2)
-    user.posts.create(title: 'Post 10', text: 'Favorite cooking recipes', comments_counter: 0, likes_counter: 7)
     visit user_posts_path(user)
     expect(page).to have_selector('.will-paginate-container')
   end
 end
-

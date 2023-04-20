@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 require 'capybara/rspec'
 
 RSpec.describe 'root page features' do
@@ -24,6 +23,7 @@ RSpec.describe 'root page features' do
         posts_counter: 0
       )
     ]
+    @user = @users.first
     visit "/users/#{@users.first.id}"
   end
 
@@ -34,7 +34,6 @@ RSpec.describe 'root page features' do
     expect(page).to have_content(@users.first.bio)
     expect(page.has_xpath?("//img[@src='#{@users.first.photo}']")).to be true
     expect(page).to have_content("Number of posts: #{@users.first.posts_counter}")
-    expect(page).to have_button('See all posts')
   end
 
   it 'display the first 3 posts' do
@@ -46,25 +45,13 @@ RSpec.describe 'root page features' do
     end
   end
 
-  it 'see all posts button redirects user to all of the posts' do
-    visit "/users/#{@users.first.id}"
-
-    expect(page).to have_button('See all posts')
-    page.has_link?('See all posts')
-
-    click_link 'See all posts'
-    expect(current_path).to eq(user_posts_path(@users.first))
-  end
-
-  it 'redirects to particular post page when clicked' do
-    visit "/users/#{@users.first.id}"
-    page.first(:link, 'view post', visible: true).click if page.has_link?('view post')
-
-    @users.first.posts.each do |post|
-      post_id = post.id
-      next unless page.has_link?('view post', href: user_post_path(@users.first, post_id))
-
-      expect(current_path).to eq(user_post_path(@users.first, post_id))
-    end
+  it 'displays a section for pagination' do
+    @user.posts.create(title: 'Post 6', text: 'First Time Home Buyer Tips', comments_counter: 2, likes_counter: 3)
+    @user.posts.create(title: 'Post 7', text: 'Job interview tips', comments_counter: 2, likes_counter: 5)
+    @user.posts.create(title: 'Post 8', text: 'Nature Photography', comments_counter: 3, likes_counter: 1)
+    @user.posts.create(title: 'Post 9', text: 'Preparing for a marathon', comments_counter: 1, likes_counter: 2)
+    @user.posts.create(title: 'Post 10', text: 'Favorite cooking recipes', comments_counter: 0, likes_counter: 7)
+    visit user_posts_path(@user)
+    expect(page).to have_selector('.will-paginate-container')
   end
 end

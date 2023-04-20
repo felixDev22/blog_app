@@ -1,7 +1,7 @@
 require 'rails_helper'
-# rubocop:disable Metrics/BlockLength
+
 RSpec.feature 'PostIndex', type: :feature do
-  let(:user) do
+  let!(:user) do
     User.create(
       name: 'Micheal',
       photo: 'https://www.img2link.com/images/2023/04/13/c2bbea766ec481f3d798809dd39eedb6.png',
@@ -52,4 +52,3 @@ RSpec.feature 'PostIndex', type: :feature do
     expect(page).to have_content(user.posts.first.comments.second.text)
   end
 end
-# rubocop:enable Metrics/BlockLength

@@ -37,6 +37,7 @@
           </div>
         </div>
       <% end %>
+      <%= will_paginate @posts %>
       <div class="">
         <% @comments = Post.find(post.id).recent_comments %>
         <% @comments.each do |comment| %> 
@@ -51,20 +52,12 @@
     <p>No posts found</p>
   <% end %>
 
+   <div class="pagination">
+    <%= content_tag :div, class: "will-paginate-container" do %>
+    <%= will_paginate @posts %>
+  <% end %>
+</div>
 
+ 
 </section>
-  </div>
-   <div class='btn_section'>
-    <button class="all_posts home">
-      <%=link_to 'home',  '/users' %>
-    </button>
-
-    <button class="all_posts">
-      Next
-    </button>
-      
-    <button class="ll_posts home">
-      <%= link_to 'back', "/users/#{@user.id}" %>
-    </button>
-
-
+ 

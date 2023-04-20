@@ -36,4 +36,11 @@
       </div>
     <% end %>
   </section>
+  </section>
+  </section>
+  <div class="pagination">
+  <%= content_tag :div, class: "will-paginate-container" do %>
+    <%= will_paginate @posts %>
+  <% end %>
+</div>
 </section>
