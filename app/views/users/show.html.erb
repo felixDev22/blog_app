@@ -1,8 +1,8 @@
 <section class='user-container'>
-  <div class='user'>
-    <div class='user_Photo'>
-      <div class='profile-photo'><%= @user.photo %></div>
-    </div>
+ <div class='user'>
+       <div class='user_Photo'>
+    <div><%= image_tag @user.photo, class: 'profile-photo' %></div>
+  </div>
     <div class='user_name'>
       <h2><%= @user.name %></h2>
       <div class='post_nums'>
@@ -30,24 +30,13 @@
       </div>
     <% end %>
 
-    <div class="btn_section">
-
-    <button class="all_posts">
-      <%= link_to "See all posts", user_posts_path(@user) %>
-    </button>
-
-  
-    <button class="all_posts create_Post">
-      <%= link_to "create post", new_user_post_path(@user) %>
-    </button>
-
-    <button class="all_posts home">
-      <%=link_to 'home',  '/users' %>
-    </button>
-    </div>
+     <div class="pagination">
+    <%= content_tag :div, class: "will-paginate-container" do %>
+    <%= will_paginate @posts %>
+  <% end %>
+</div>
 
 
-    
   </section>
-    
+
 </section>

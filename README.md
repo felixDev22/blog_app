@@ -3,7 +3,8 @@
 <div align="center">
 
   <img src="./Felix-Logo.500.jpg" alt="logo" width="140"  height="auto" />
-  <br/>
+  
+</div>
 
   <h3><b>Blog-App</b></h3>
 
@@ -70,7 +71,7 @@ To get a local copy up and running, follow these steps.
 In order to run this project you need:
 
 - Ruby installed in your machine
-
+- Setup linters
 - `gem install rails` (Ruby gem)
 
 ### Setup
@@ -108,6 +109,12 @@ To run tests, run the following command accordingly:
 - GitHub: [@githubhandle](https://github.com/felixDev22)
 - Twitter: [@twitterhandle](https://twitter.com/@monzo200)
 - LinkedIn: [LinkedIn](https://https://www.linkedin.com/in/felixnyamai/)
+
+👤 **Ajayi Ridwan**
+
+- GitHub: [@githubhandle](https://github.com/Ridwanullahi-code)
+- Twitter: [@twitterhandle](https://twitter.com/Ridwanullahi22)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ajayi-ridwan-2a1515199/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

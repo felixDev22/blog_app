@@ -1,40 +1,32 @@
 <section class='user-container'>
   <div class='user'>
-    <div class='user_Photo'>
-      <div class='profile-photo'><%= @user.photo %></div>
-    </div>
-    <div class='user_name'>
-      <h2><%= @user.name %></h2>
-      <div class='post_nums'>
-        <p class="post_count">Number of posts: <%= @user.posts_counter %></p>
-      </div>
+       <div class='user_Photo'>
+    <div><%= image_tag @user.photo, class: 'profile-photo' %></div>
+  </div>
+  <div class='user_name'>
+    <h2><%= @user.name %></h2>
+    <div class='post_nums'>
+      <p class="post_count">Number of posts: <%= @user.posts_counter %></p>
     </div>
   </div>
+</div>
 
-  <section class="posts_container">
-    <% if @recent_posts.present? %>
-      <% @recent_posts.each_with_index do |post, index| %>
-        <div class="post">
-          <h3>Post #<%= index+1 %></h3>
-          <p class="post_text"><%= post.text %></p>
-          <p class="comments_likes">
-            Comments: <%= post.comments_counter %>,
-            Likes: <%= post.likes_counter %>
-          </p>
-        </div>
-      <% end %>
-    <% else %>
-      <p class=no-posts>*No recent posts.</p>
-    <% end %>
-
-    <button class="all_posts">
-      <%= link_to "See all posts", user_posts_path(@user) %>
-    </button>
-  </section>
+<section class="posts_container">
+  <% @posts.each_with_index do |post, index| %>
+    <div class="post">
+      <h3>Post #<%= index+1 %></h3>
+      <p class="post_text"><%= post.text %></p>
+      <p class="comments_likes">
+        Comments: <%= post.comments_counter %>,
+        Likes: <%= post.likes_counter %>
+      </p>
+    </div>
+  <% end %>
+</section>
 
   <section class="post">
   <% if @posts %>
-    <% @posts.each do |post| %>
+    <% @posts.includes(:comments).each do |post| %>
       <%= link_to user_post_path(@id, post.id), class: "user-link" do %>
         <div class="">
           <h3><%= post.title %></h3>
@@ -45,11 +37,12 @@
           </div>
         </div>
       <% end %>
+      <%= will_paginate @posts %>
       <div class="">
         <% @comments = Post.find(post.id).recent_comments %>
         <% @comments.each do |comment| %> 
           <div class="">
-            <h3><%= comment.user.name %></h3>:
+            <h3><%= comment.user_id %></h3>:
             <h5 class=""><%= comment.text %></h5> 
           </div>   
         <% end %>
@@ -59,20 +52,12 @@
     <p>No posts found</p>
   <% end %>
 
+   <div class="pagination">
+    <%= content_tag :div, class: "will-paginate-container" do %>
+    <%= will_paginate @posts %>
+  <% end %>
+</div>
 
+ 
 </section>
-  </div>
-   <div class='btn_section'>
-    <button class="all_posts home">
-      <%=link_to 'home',  '/users' %>
-    </button>
-
-    <button class="all_posts">
-      Next
-    </button>
-      
-    <button class="ll_posts home">
-      <%= link_to 'back', "/users/#{@user.id}" %>
-    </button>
-
-
+ 

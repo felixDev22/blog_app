@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This migration adds a foreign key constraint and an index to the 'comments' table.
 class AddForeignKeyToComments < ActiveRecord::Migration[7.0]
   def change

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This migration adds foreign key constraints and indexes to the 'likes' table.
 class AddForeignKeyToLikes < ActiveRecord::Migration[7.0]
   def change

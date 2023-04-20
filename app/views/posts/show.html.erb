@@ -10,8 +10,6 @@
       </div>
         <p class="post_text"><%= @post.text %></p>
     </div>
-      
-    
     </div>
    
   <% else %>
@@ -25,17 +23,26 @@
     <% else %>
       <div class="comments">
         <h4>Comments:</h4>
-       <% @post.comments.each do |comment| %>
-  <p class="show_comment">
-    <% if comment.author %>
-      <strong><%= comment.author.name %>:</strong>
-    <% else %>
-      <strong>--</strong>
-    <% end %>
-    <%= comment.text %>
-  </p>
-<% end %>
+        <% @post.comments.includes(:author).each do |comment| %>
+          <p class="show_comment">
+            <% if comment.author %>
+              <strong><%= comment.author.name %>:</strong>
+            <% else %>
+              <strong>--</strong>
+            <% end %>
+            <%= comment.text %>
+          </p>
+        <% end %>
       </div>
     <% end %>
   </section>
+  </section>
+  </section>
+  <div class="pagination">
+
+  <%= content_tag :div, class: "will-paginate-container" do %>
+    <%= will_paginate @posts %>
+  <% end %>
+  
+</div>
 </section>

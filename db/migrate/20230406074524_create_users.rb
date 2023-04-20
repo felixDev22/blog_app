@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This migration creates the users table, which stores information about registered users of the application.
 class CreateUsers < ActiveRecord::Migration[7.0]
   def change

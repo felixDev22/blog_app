@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This migration creates a 'likes' table with a foreign key reference to the 'users' and 'posts' tables.
 class CreateLikes < ActiveRecord::Migration[7.0]
   def change
