@@ -3,7 +3,7 @@
   <%= link_to 'Blog App', '/users' %>
   <div class='nav-item'>
     <% if @user %>
-      <%= link_to 'create post', '/users/:user_id/posts' %>
+      <%= link_to 'create post',  new_user_post_path(@user) %>
     <% end %>
     <div>
     <%= link_to 'Log-in', new_user_session_path %>
