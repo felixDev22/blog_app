@@ -1,13 +1,10 @@
-<div class="form-container">
-  <h1>New Comment</h1>
-
-  <%= form_with model: @comment, url: user_post_comments_path, class: "form", local: true do |form| %>
-    <div class="form-input">
-      <%= form.text_area :text, required: true, class: "form_text ", placeholder: "Add a comment..." %>
-    </div>
-    <div class='comment-submit-btn'>
-      <%= form.submit "Submit comment"%>
-    </div>
+<div class="flex-center">
+  <p><%= user.name %>: <%= comment.text %></p>
+  <% if can? :destroy , comment %>
+  <%= form_with model: comment, method: :delete, local: true, 
+    url: "/users/#{@post.author.id}/posts/#{@post.id}/comments/#{comment.id}/",
+      html: {class: "row flex-end"} do |f| %>
+  <%= f.submit "Delete Comment", class: "auto-width" %>
   <% end %>
-  <button class="back"><%=link_to 'Back to posts', user_posts_path %></button>
+  <% end %>
 </div>
