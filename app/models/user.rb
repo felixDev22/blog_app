@@ -1,3 +1,4 @@
+# app/models/user.rb
 # This class represents a user who can create posts, comments, and likes.
 # Users have a name and a counter for their posts.
 class User < ApplicationRecord

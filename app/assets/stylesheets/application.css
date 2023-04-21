@@ -214,11 +214,6 @@ button {
   cursor: pointer;
 }
 
-button {
-  padding: 8px;
-  margin: 8px;
-}
-
 .actions button {
   width: 100%;
 }
@@ -234,5 +229,6 @@ a {
 }
 
 .text-center {
+  margin-bottom: 10px;
   text-align: center;
 }
