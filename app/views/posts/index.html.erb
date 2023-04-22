@@ -1,4 +1,7 @@
 <section class='user-container'>
+<% if @user.present? %>
+  <%= link_to 'create post', new_user_post_path(user_id: @user.id) %>
+<% end %>
   <div class='user'>
        <div class='user_Photo'>
     <div><%= image_tag @user.photo, class: 'profile-photo' %></div>
@@ -9,22 +12,24 @@
       <p class="post_count">Number of posts: <%= @user.posts_counter %></p>
     </div>
   </div>
-</div>
+  </div>
 
-<section class="posts_container">
+  <div class="posts_container">
   <% @posts.each_with_index do |post, index| %>
-    <div class="post">
+  <%= link_to user_post_path(@user, post) do %>
+    <ul class="post">
       <h3>Post #<%= index+1 %></h3>
       <p class="post_text"><%= post.text %></p>
       <p class="comments_likes">
         Comments: <%= post.comments_counter %>,
         Likes: <%= post.likes_counter %>
       </p>
-    </div>
+    </ul>
+    <% end %>
   <% end %>
-</section>
+  </div>
 
-  <section class="post">
+  <div class="post">
   <% if @posts %>
     <% @posts.includes(:comments).each do |post| %>
       <%= link_to user_post_path(@id, post.id), class: "user-link" do %>
@@ -51,13 +56,24 @@
   <% else %>
     <p>No posts found</p>
   <% end %>
+  </div>
+
+</section>
+
+
+<div class="btn-section">
+      <button class="all_posts">
+        <%=link_to 'home',  '/users' %>
+      </button>
+
+      <button class="all_posts">
+        <%= link_to 'back', "/users/#{@user.id}" %>
+      </button>
+  
 
    <div class="pagination">
     <%= content_tag :div, class: "will-paginate-container" do %>
     <%= will_paginate @posts %>
   <% end %>
-</div>
-
- 
-</section>
+  </div>
  

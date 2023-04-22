@@ -1,22 +1,17 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @id = params[:user_id]
-    @user = User.find(@id)
+    @user = current_user
     @posts = Post.where(author_id: @user.id).paginate(page: params[:page], per_page: 2)
   end
 
   def show
-    @user = User.find_by(id: params[:user_id])
-    @post = Post.find_by(id: params[:id])
-
+    @user = User.find(params[:user_id])
+    @post = Post.find(params[:id])
     @post_comments = @post.comments.includes(:author)
     @new_comment = Comment.new
-  end
-
-  def new
-    @user = User.find(params[:user_id])
-    @post = @user.posts.new
-    render :new, locals: { post: @post }
   end
 
   def create
@@ -35,5 +30,22 @@ class PostsController < ApplicationController
       flash.now[:error] = 'Sorry something went wrong'
       render :new
     end
+  end
+
+  def new
+    @user = current_user
+    @post = @user.posts.build
+  end
+
+  def destroy
+    puts 'Destroying comment...'
+    @post = current_user.posts.find_by(id: params[:id])
+    if @post&.destroy
+      flash[:success] = 'Post deleted!'
+      current_user.decrement!(:posts_counter) # Decrease the post count by 1 for the current_user
+    else
+      flash[:danger] = 'Post not deleted!'
+    end
+    redirect_to user_posts_path(current_user) # Redirect to the user's posts page
   end
 end
