@@ -11,7 +11,7 @@
   </div>
 </div>
 
-<section class="posts_container">
+<div class="posts_container">
   <% @posts.each_with_index do |post, index| %>
     <div class="post">
       <h3>Post #<%= index+1 %></h3>
@@ -22,9 +22,9 @@
       </p>
     </div>
   <% end %>
-</section>
+</div>
 
-  <section class="post">
+  <div class="post">
   <% if @posts %>
     <% @posts.includes(:comments).each do |post| %>
       <%= link_to user_post_path(@id, post.id), class: "user-link" do %>
@@ -51,13 +51,23 @@
   <% else %>
     <p>No posts found</p>
   <% end %>
+  </div>
+
+<div class="btn-section">
+      <button class="all_posts">
+        <%=link_to 'home',  '/users' %>
+      </button>
+
+      <button class="all_posts">
+        <%= link_to 'back', "/users/#{@user.id}" %>
+      </button>
+  
 
    <div class="pagination">
     <%= content_tag :div, class: "will-paginate-container" do %>
     <%= will_paginate @posts %>
   <% end %>
-</div>
+  </div>
 
- 
 </section>
  

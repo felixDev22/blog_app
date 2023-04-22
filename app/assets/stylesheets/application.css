@@ -83,6 +83,7 @@ body {
   display: flex;
   flex-direction: column;
   height: auto;
+  margin-top: 30px;
 }
 
 .post,
@@ -91,7 +92,7 @@ body {
   width: 820px;
   height: 150px;
   padding: 20px;
-  margin: 10px auto;
+  margin: 20px auto;
   font-size: 14px;
 }
 
@@ -102,17 +103,20 @@ body {
   margin-right: 20px;
 }
 
-button {
+.btn-section {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 10px auto;
-  width: 90px;
-  height: 30px;
+  justify-content: space-between;
+}
+
+button {
+  padding: 10px 20px;
 }
 
 .all_posts {
-  font-size: 14px;
+  width: 50px;
+  font-size: 12px;
+  margin-left: 25px;
 }
 
 .no-posts {
@@ -157,6 +161,11 @@ button {
   margin-left: 30px;
 }
 
+.back {
+  width: 420px;
+  padding: 10px;
+}
+
 .like-created {
   border: 1px solid #8b8b8b;
   width: 820px;
@@ -176,6 +185,17 @@ button {
   align-items: center;
   padding: 20px;
   color: #f5f5f5;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add_like,
+.option {
+  display: flex;
+  gap: 10px;
 }
 
 form {
@@ -231,4 +251,10 @@ a {
 .text-center {
   margin-bottom: 10px;
   text-align: center;
+}
+
+.delete-btn {
+  background-color: crimson;
+  width: 70px;
+  height: 30px;
 }

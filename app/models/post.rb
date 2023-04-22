@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   after_create :update_posts_counter
   after_destroy :update_posts_counter
 
-   def initialize(attributes = {})
+  def initialize(attributes = {})
     super
     self.comments_counter ||= 0
     self.likes_counter ||= 0
