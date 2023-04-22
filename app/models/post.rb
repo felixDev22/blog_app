@@ -5,7 +5,6 @@ class Post < ApplicationRecord
   has_many :likes, foreign_key: :post_id, dependent: :destroy
   has_many :comments, foreign_key: :post_id, dependent: :destroy
 
-
   after_create :update_posts_counter
   after_destroy :update_posts_counter
 
