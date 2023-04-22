@@ -2,9 +2,9 @@
 <section class="nav-bar">
   <%= link_to 'Blog App', '/users' %>
   <div class='nav-item'>
-    <% if @user %>
-      <%= link_to 'create post',  new_user_post_path(@user) %>
-    <% end %>
+    <% if @user.present? %>
+  <%= link_to 'create post', new_user_post_path(:user_id) %>
+<% end %>
     <div>
     <%= link_to 'Log-in', new_user_session_path %>
     </div>
