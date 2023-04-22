@@ -112,6 +112,7 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     json (2.6.3)
+    jwt (2.7.0)
     loofah (2.20.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -269,6 +270,7 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootsnap
   cancancan
   capybara
@@ -276,6 +278,7 @@ DEPENDENCIES
   devise
   importmap-rails
   jbuilder
+  jwt
   pagy (~> 0.6.0)
   pg (~> 1.1)
   puma (~> 5.0)
