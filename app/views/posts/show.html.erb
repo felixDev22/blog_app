@@ -43,7 +43,7 @@
   
 
   <% if can? :destroy, comment %>
-  <%= button_to "Delete Comment", user_post_path(@user, @post), method: :delete, data: { confirm: "Are you sure you want to delete?" }, class: "delete-comment" %>
+  <%= button_to "Delete Comment", user_post_comment_path(@user, @post, comment), method: :delete, data: { confirm: "Are you sure you want to delete?" }, class: "delete-comment" %>
 <% end %>
       
         </p>

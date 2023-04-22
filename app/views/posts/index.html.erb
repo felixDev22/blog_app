@@ -1,4 +1,7 @@
 <section class='user-container'>
+<% if @user.present? %>
+  <%= link_to 'create post', new_user_post_path(user_id: @user.id) %>
+<% end %>
   <div class='user'>
        <div class='user_Photo'>
     <div><%= image_tag @user.photo, class: 'profile-photo' %></div>

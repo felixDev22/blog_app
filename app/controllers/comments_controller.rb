@@ -14,8 +14,8 @@ class CommentsController < ApplicationController
 
     if @comment.save
       flash[:notice] = 'Comment added successfully!'
-      # @comment.update_comments_counter
-      redirect_to users_path
+      @comment.update_comments_counter
+      redirect_to user_post_path(current_user.id, @post.id)
     else
       flash[:alert] = "Couldn't create Comment!"
       render :new
@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
     else
       flash[:danger] = 'Comment not deleted!'
     end
-    redirect_to "/users/#{current_user.id}"
+    redirect_to user_post_path(current_user.id, @post.id)
   end
 
   def comment_params
