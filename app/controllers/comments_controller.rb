@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  
   before_action :authenticate_user!
 
   def new
@@ -28,7 +27,7 @@ class CommentsController < ApplicationController
 
     if @comment&.destroy
       flash[:success] = 'Comment deleted!'
-      @comment.post.decrement!(:comments_counter) 
+      @comment.post.decrement!(:comments_counter)
     else
       flash[:danger] = 'Comment not deleted!'
     end
@@ -36,6 +35,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-  params.require(:comment).permit(:text)
-end
+    params.require(:comment).permit(:text)
+  end
 end

@@ -12,7 +12,6 @@ class PostsController < ApplicationController
     @new_comment = Comment.new
   end
 
-
   def create
     @user = current_user
     @post = Post.new(
@@ -32,10 +31,9 @@ class PostsController < ApplicationController
   end
 
   def new
-  @user = User.find(params[:user_id])
-  @post = @user.posts.build
-end
-
+    @user = User.find(params[:user_id])
+    @post = @user.posts.build
+  end
 
   def destroy
     puts 'Destroying comment...'
