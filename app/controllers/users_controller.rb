@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.includes(posts: %i[likes comments]).find(params[:id])
-    @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 2)
+    @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 3)
     @recent_posts = @user.recent_posts
   end
 end

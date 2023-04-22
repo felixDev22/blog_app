@@ -9,20 +9,22 @@
       <p class="post_count">Number of posts: <%= @user.posts_counter %></p>
     </div>
   </div>
-</div>
+  </div>
 
-<div class="posts_container">
+  <div class="posts_container">
   <% @posts.each_with_index do |post, index| %>
-    <div class="post">
+  <%= link_to user_post_path(@user, post) do %>
+    <ul class="post">
       <h3>Post #<%= index+1 %></h3>
       <p class="post_text"><%= post.text %></p>
       <p class="comments_likes">
         Comments: <%= post.comments_counter %>,
         Likes: <%= post.likes_counter %>
       </p>
-    </div>
+    </ul>
+    <% end %>
   <% end %>
-</div>
+  </div>
 
   <div class="post">
   <% if @posts %>
@@ -53,6 +55,9 @@
   <% end %>
   </div>
 
+</section>
+
+
 <div class="btn-section">
       <button class="all_posts">
         <%=link_to 'home',  '/users' %>
@@ -68,6 +73,4 @@
     <%= will_paginate @posts %>
   <% end %>
   </div>
-
-</section>
  

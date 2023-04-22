@@ -2,9 +2,9 @@
 # Comments belong to a post and are written by a user.
 class Comment < ApplicationRecord
   belongs_to :post
-  belongs_to :author, class_name: 'User'
+  belongs_to :user
 
-  validates :author, presence: true
+  validates :user, presence: true
   after_save :update_comments_counter
 
   def recent_comments

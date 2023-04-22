@@ -94,6 +94,7 @@ body {
   padding: 20px;
   margin: 20px auto;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .comments_likes {
@@ -257,4 +258,10 @@ a {
   background-color: crimson;
   width: 70px;
   height: 30px;
+}
+
+.caution {
+  color: crimson;
+  font-weight: 300px;
+  font-size: 0.7rem;
 }

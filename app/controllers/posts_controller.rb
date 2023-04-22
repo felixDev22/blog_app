@@ -6,18 +6,23 @@ class PostsController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:user_id])
-    @post = Post.find_by(id: params[:id])
-    # @post_comments = Comment.where(post_id: @post)
+    @user = User.find(params[:user_id])
+    @post = Post.find(params[:id])
     @post_comments = @post.comments.includes(:author)
     @new_comment = Comment.new
   end
 
-  def new
-    @user = current_user
-    @post = @user.posts.new
-    render :new, locals: { post: @post }
-  end
+# def create
+#   @user = User.find(params[:user_id])
+#   @post = @user.posts.find(params[:post_id])
+#   @comment = @post.comments.build(comment_params)
+#   if @comment.save
+#     redirect_to user_post_path(@user, @post)
+#   else
+#     render :new
+#   end
+# end
+
 
   def create
     @user = current_user
