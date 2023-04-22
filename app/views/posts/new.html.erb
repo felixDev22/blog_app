@@ -1,5 +1,6 @@
 <section class="form-container">
-  <%= form_for [@user, @post] do |form| %>
+
+  <%= form_for([@user, @post]) do |form| %>
     <div class="form-input">
       <%= form.label :title %>
       <%= form.text_field :title, required: true, class: "form_title", placeholder: "Add a title here" %>

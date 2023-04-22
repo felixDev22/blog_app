@@ -30,10 +30,11 @@ class PostsController < ApplicationController
     end
   end
 
-  def new
-    @user = User.find(params[:user_id])
+ def new
+    @user = current_user
     @post = @user.posts.build
   end
+
 
   def destroy
     puts 'Destroying comment...'
